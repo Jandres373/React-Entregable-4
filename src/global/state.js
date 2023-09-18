@@ -1,6 +1,7 @@
 import { create } from "zustand";
 
 export const useUser = create((set) => ({
+  total_users: 0,
   id: "$NO_DATA",
   email: "$NO_DATA",
   password: "$NO_DATA",
@@ -8,6 +9,7 @@ export const useUser = create((set) => ({
   last_name: "$NO_DATA",
   birthday: "$NO_DATA",
   image_url: "$NO_DATA",
+  setTotal_users: (value)=>set({total_users:value}),
   setId: (id) => set({id: id }),
   setEmail: (email) => set({email: email }),
   setPassword: (password) => set({password: password }),

@@ -46,8 +46,6 @@ const Modal_userInteraction = ({ text }) => {
 
   const closeDrawer = () => {
     drawer.setIsDrawerOpen(false);
-    console.log(drawer.isDrawerOpen)
-    console.log(shouldUpdate.shouldUpdate)
     drawer.setDrawerAction("Create");
   };
   /* Render */
@@ -169,14 +167,14 @@ const Modal_userInteraction = ({ text }) => {
             </button>
             <button
               type="button"
-              disabled={shouldUpdate.shouldUpdate<=0 ? true : false}
+              disabled={user.total_users <=0 ? true : false}
               className="btn btn-error w-full max-w-xs mt-5"
               onClick={closeDrawer}
             >
               Close
             </button>
           </form>
-          {shouldUpdate.shouldUpdate<=0 && <p className="text-red-500">*If there are no users, you won't be able to close this window until you add at least one.</p>}
+          {user.total_users<=0 && <p className="text-red-500">*If there are no users, you won't be able to close this window until you add at least one.</p>}
           <img src={AcademloLogo} alt="Academlo Logo" className="px-20" />
         </ul>
       </div>

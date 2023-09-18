@@ -30,6 +30,10 @@ const Home_screen = () => {
       .then((resp) => setResponse(resp));
   }, [shouldUpdate.shouldUpdate]);
 
+  useEffect(()=>{
+    user.setTotal_users(response?.data?.length)
+  },[response])
+
   const openDrawer = () => {
     drawer.setIsDrawerOpen(true);
   };
