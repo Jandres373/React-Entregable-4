@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.miestilo {
+    background-color: var(hsl(240, 20%, 50%));
+    /* Utiliza la variable personalizada */
+    color: white;
+    /* Ejemplo de otra propiedad de estilo */
+}
