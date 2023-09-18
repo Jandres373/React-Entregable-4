@@ -47,9 +47,9 @@ const Users_userCard = ({ index, user }) => {
   }
 
   return (
-    <div className="indicator ">
+    <div className="indicator">
       {index === user?.data?.lenght - 2 && (
-        <span className="indicator-item badge badge-success p-3 font-bold text-md">
+        <span className="indicator-item badge badge-success p-3 font-bold text-md ">
           newest
         </span>
       )}
@@ -57,12 +57,12 @@ const Users_userCard = ({ index, user }) => {
       <div className="grid place-items-center">
         <div
           id="user_card"
-          className="w-[500px] h-96 rounded-2xl flex justify-between overflow-hidden shadow-lg bg-white "
+          className="w-[300px] md:w-[500px] h-96 rounded-2xl flex justify-between overflow-hidden shadow-lg bg-white "
         >
           <div id="card_image" className="w-[45%] ">
             <img src={user.image_url} />
           </div>
-          <div id="card_text" className="w-[50%]  py-5 pr-5">
+          <div id="card_text" className="w-[50%] py-5 pr-5">
             <h2 className="card-title ">User ID {user.id}</h2>
             <hr />
             <div

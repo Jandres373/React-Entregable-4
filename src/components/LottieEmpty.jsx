@@ -10,7 +10,7 @@ const LottieEmpty = ({response}) => {
   style={{ height: '300px', width: '300px' }}
 >
   <Controls />
-</Player><h3 className="text-2lg font-bold">Upsss!  It looks like this site is empty. Please add some users!</h3></div>
+</Player><h3 className="text-2lg font-bold">Upsss! It looks like there are no users yet. Please hit the create user button to continue.</h3></div>
 
   )
 }

@@ -20,17 +20,12 @@ const Modal_userDeleted = () => {
     /* deletionToast() */
     }
 
-
-    const deletionToast = () => {
-
-    }
-
   return (
     <div
       id="modal_user_created_container"
       className="fixed w-screen h-screen z-40 top-0 bg-white bg-opacity-80 grid items-center justify-center"
     >
-      <div className=" relative text-center text-black text-3xl bg-slate-100 w-[700px] h-64 rounded-2xl flex justify-center items-center">
+      <div className=" relative text-center text-black text-3xl bg-slate-100 md:w-[700px] h-64 rounded-2xl flex justify-center items-center">
         <p>
           Are you sure you want to delete this user?
           <div id="button_group" >

@@ -22,6 +22,7 @@ const Home_screen = () => {
   const deleteModal = useDeleteModal();
   const dots = useInterval(500, 3);
   const drawer = useDrawer();
+  const user = useUser();
 
   useEffect(() => {
     apiControl
@@ -33,9 +34,8 @@ const Home_screen = () => {
     drawer.setIsDrawerOpen(true);
   };
 
-  const user = useUser();
   return (
-    <section id="home_screen" className="w-full  h-screen">
+    <section id="home_screen" className="w-full  min-h-screen">
       <div
         id="control_pannel"
         className="w-full flex  py-20 md:py-20  px-4 md:px-40"

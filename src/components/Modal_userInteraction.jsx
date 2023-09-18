@@ -39,8 +39,8 @@ const Modal_userInteraction = ({ text }) => {
     drawer.drawerAction === "Edit" &&
       apiControl.patch(url + drawer.editElementId + "/", data).then((res) => {
         shouldUpdate.setShouldUpdate(shouldUpdate.shouldUpdate + 1);
-        shouldUpdate.setShouldUpdate(shouldUpdate.shouldUpdate - 1);
         drawer.setIsDrawerOpen(false);
+        shouldUpdate.setShouldUpdate(shouldUpdate.shouldUpdate - 1);
       });
   };
 
@@ -79,6 +79,7 @@ const Modal_userInteraction = ({ text }) => {
           <form onSubmit={handleSubmit(onSubmit)} className="px-5 my-16">
             <label htmlFor="email">Email address</label>
             <input
+            required
               id="email"
               type="email"
               placeholder="User's email"
@@ -87,6 +88,7 @@ const Modal_userInteraction = ({ text }) => {
             />{" "}
             <label htmlFor="Password">Password</label>
             <input
+            required
               id="Password"
               type="password"
               placeholder="User's Password"
@@ -95,6 +97,7 @@ const Modal_userInteraction = ({ text }) => {
             />{" "}
             <label htmlFor="last_name">User's first name</label>
             <input
+            required
               id="first_name"
               type="text"
               placeholder="User's first name"
@@ -103,6 +106,7 @@ const Modal_userInteraction = ({ text }) => {
             />{" "}
             <label htmlFor="last_name">User's last name</label>
             <input
+            required
               id="last_name"
               type="text"
               placeholder="User's last name"
@@ -111,6 +115,7 @@ const Modal_userInteraction = ({ text }) => {
             />{" "}
             <label htmlFor="birthday">User's birthday</label>
             <input
+            required
               id="birthday"
               type="date"
               placeholder="User's birthday"
@@ -135,17 +140,24 @@ const Modal_userInteraction = ({ text }) => {
                 </option>
                 <option
                   value={
-                    "https://img.freepik.com/vector-gratis/avatar-personaje-empresario-aislado_24877-60111.jpg?w=740&t=st=1694905024~exp=1694905624~hmac=542b3fb1aecf0a5c14b7b4e5e9e14fed27982a7cf81c257fcf23dde3f5c866f8"
+                    "https://plus.unsplash.com/premium_photo-1661775940410-1546f3dbeaa8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1852&q=80"
                   }
                 >
                   Hombre1
                 </option>
                 <option
                   value={
-                    "https://cdn.pixabay.com/photo/2023/03/14/22/11/mahabalipuram-7853259_1280.jpg"
+                    "https://images.unsplash.com/photo-1547355253-ff0740f6e8c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1854&q=80"
                   }
                 >
-                  Batman
+                  Mujer1
+                </option>
+                <option
+                  value={
+                    "https://images.unsplash.com/photo-1652910159836-f04628b84637?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1854&q=80"
+                  }
+                >
+                  Relax
                 </option>
               </select>
             </div>
