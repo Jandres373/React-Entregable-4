@@ -4,27 +4,45 @@ import { printDataInScreen } from "../functions/printDataInScreen";
 import { useDrawer, useModal, useShouldUpdate, useUser } from "../global/state";
 import { apiControl } from "../functions/crud";
 import { showModal } from "../functions/showModal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Modal_userInteraction = ({ text }) => {
   const user = useUser();
   const shouldUpdate = useShouldUpdate();
   const modal = useModal();
   const drawer = useDrawer();
-  const [drawerStatus, setDrawerStatus] = useState(false)
+  const [drawerStatus, setDrawerStatus] = useState(false);
   /* Uso del hook RHF */
   const {
     register,
     handleSubmit,
+    reset,
     watch,
     formState: { errors },
   } = useForm();
 
+  useEffect(() => {
+    const userData = user.user_api_data;
+    if (drawer.drawerAction === "Edit") {
+      reset({ ...userData });
+    }
 
-  
+    if (drawer.drawerAction === "Create") {
+      reset({
+        id: "",
+        email: "",
+        password: "",
+        first_name: "",
+        last_name: "",
+        birthday: "",
+        image_url: "",
+      });
+    }
+  }, [drawer.drawerAction]);
+
   const onSubmit = (data) => {
     console.log("me estoy ejecutando en el onsubmit");
-    console.log(drawer.drawerAction)
+    console.log(drawer.drawerAction);
     const url = "https://users-crud.academlo.tech/users/";
 
     drawer.drawerAction === "Create" &&
@@ -58,12 +76,12 @@ const Modal_userInteraction = ({ text }) => {
         className="drawer-toggle"
       />
       <div className="flex justify-end">
-      <div className="drawer-content flex justify-center items-center w-fit h-fit  rounded-sm ">
-        {/* Page content here */}
-        <label htmlFor="my-drawer" className="drawer-button">
-          {text}
-        </label>
-      </div>
+        <div className="drawer-content flex justify-center items-center w-fit h-fit  rounded-sm ">
+          {/* Page content here */}
+          <label htmlFor="my-drawer" className="drawer-button">
+            {text}
+          </label>
+        </div>
       </div>
       <div className="drawer-side ">
         <label htmlFor="my-drawer" className="drawer-overlay"></label>
@@ -72,12 +90,12 @@ const Modal_userInteraction = ({ text }) => {
           <h3 className="text-lg font-bold">{drawer.drawerAction} user</h3>
           {/* Form */}
           <p>Please fill the form before proceeding.</p>
-         
+
           {/* ___ */}
           <form onSubmit={handleSubmit(onSubmit)} className="px-5 my-16">
             <label htmlFor="email">Email address</label>
             <input
-            required
+              required
               id="email"
               type="email"
               placeholder="User's email"
@@ -86,7 +104,7 @@ const Modal_userInteraction = ({ text }) => {
             />{" "}
             <label htmlFor="Password">Password</label>
             <input
-            required
+              required
               id="Password"
               type="password"
               placeholder="User's Password"
@@ -95,7 +113,7 @@ const Modal_userInteraction = ({ text }) => {
             />{" "}
             <label htmlFor="last_name">User's first name</label>
             <input
-            required
+              required
               id="first_name"
               type="text"
               placeholder="User's first name"
@@ -104,7 +122,7 @@ const Modal_userInteraction = ({ text }) => {
             />{" "}
             <label htmlFor="last_name">User's last name</label>
             <input
-            required
+              required
               id="last_name"
               type="text"
               placeholder="User's last name"
@@ -113,7 +131,7 @@ const Modal_userInteraction = ({ text }) => {
             />{" "}
             <label htmlFor="birthday">User's birthday</label>
             <input
-            required
+              required
               id="birthday"
               type="date"
               placeholder="User's birthday"
@@ -167,14 +185,19 @@ const Modal_userInteraction = ({ text }) => {
             </button>
             <button
               type="button"
-              disabled={user.total_users <=0 ? true : false}
+              disabled={user.total_users <= 0 ? true : false}
               className="btn btn-error w-full max-w-xs mt-5"
               onClick={closeDrawer}
             >
               Close
             </button>
           </form>
-          {user.total_users<=0 && <p className="text-red-500">*If there are no users, you won't be able to close this window until you add at least one.</p>}
+          {user.total_users <= 0 && (
+            <p className="text-red-500">
+              *If there are no users, you won't be able to close this window
+              until you add at least one.
+            </p>
+          )}
           <img src={AcademloLogo} alt="Academlo Logo" className="px-20" />
         </ul>
       </div>

@@ -8,6 +8,7 @@ import {
   useDrawer,
   useModal,
   useShouldUpdate,
+  useUser,
 } from "../global/state";
 import { apiControl } from "../functions/crud";
 import Modal_userInteraction from "./Modal_userInteraction";
@@ -18,6 +19,7 @@ const Users_userCard = ({ index, user }) => {
   const shouldUpdate = useShouldUpdate();
   const modal = useModal();
   const drawer = useDrawer();
+  const apiUser= useUser()
 
   useEffect(() => {
     const deleteFromDB = () => {
@@ -44,6 +46,7 @@ const Users_userCard = ({ index, user }) => {
     drawer.setEditElementId(id);
     drawer.setDrawerAction("Edit");
     drawer.setIsDrawerOpen(true);
+    apiUser.setUser_api_data(user)
   }
 
   return (
@@ -54,10 +57,10 @@ const Users_userCard = ({ index, user }) => {
         </span>
       )}
 
-      <div className="grid place-items-center">
+      <div className="grid place-items-center ">
         <div
           id="user_card"
-          className="w-[300px] md:w-[500px] h-96 rounded-2xl flex justify-between overflow-hidden shadow-lg bg-white "
+          className="w-[350px] md:w-[500px] h-96 rounded-2xl flex justify-between overflow-hidden shadow-lg bg-white "
         >
           <div id="card_image" className="w-[45%] ">
             <img src={user.image_url} />
@@ -67,7 +70,7 @@ const Users_userCard = ({ index, user }) => {
             <hr />
             <div
               id="card_user_info_and_buttons"
-              className="flex flex-col justify-between h-full pb-5"
+              className="flex flex-col justify-between h-full pb-5 "
             >
               <div id="card_user_info">
                 <p className="text-gray-400 mt-5 ">
