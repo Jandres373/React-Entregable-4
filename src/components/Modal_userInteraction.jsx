@@ -68,14 +68,14 @@ const Modal_userInteraction = ({ text }) => {
   };
   /* Render */
   return (
-    <div className="drawer drawer-end z-10">
+    <div className="drawer drawer-end z-10 ">
       <input
         id="my-drawer"
         type="checkbox"
         checked={drawer.isDrawerOpen}
-        className="drawer-toggle"
+        className="drawer-toggle "
       />
-      <div className="flex justify-end">
+      <div className="flex justify-end ">
         <div className="drawer-content flex justify-center items-center w-fit h-fit  rounded-sm ">
           {/* Page content here */}
           <label htmlFor="my-drawer" className="drawer-button">
@@ -83,8 +83,8 @@ const Modal_userInteraction = ({ text }) => {
           </label>
         </div>
       </div>
-      <div className="drawer-side ">
-        <label htmlFor="my-drawer" className="drawer-overlay"></label>
+      <div className="drawer-side cursor-default">
+        <label htmlFor="my-drawer " className="drawer-overlay cursor-default"></label>
         <ul className="menu p-4 w-80 min-h-full bg-slate-200 text-base-content">
           {/* Sidebar content here */}
           <h3 className="text-lg font-bold">{drawer.drawerAction} user</h3>

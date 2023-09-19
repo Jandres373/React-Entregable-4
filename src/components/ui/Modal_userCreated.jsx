@@ -20,7 +20,7 @@ const Modal_userCreated = () => {
       id="modal_user_created_container"
       className="absolute w-screen h-screen z-40 top-0 transparent grid items-center justify-center"
     >
-      <div className=" relative text-center text-white text-3xl bg-green-500 w-[700px] h-64 rounded-2xl flex justify-center items-center">
+      <div className=" relative text-center text-white text-3xl bg-green-500 mx-2 md:mx-0 md:w-[700px] h-64 rounded-2xl flex justify-center items-center">
         <p>
           User has been created!
           <button
